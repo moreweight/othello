@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define boardSize 26
+#define boardSize 8
 
 typedef struct gameSquare_struct {
     int r;
@@ -20,6 +20,8 @@ void getNumDiscs(char** board, int* black, int* white);
 char legalPlayerChar(char player, char* funcName);
 
 gameSquare getMove();
+
+gameSquare randomMove(char** board, char player);
 
 // gets identity of nearby character relative to 
 char nearbyChar(char** board, gameSquare square, int rowOffset, int colOffset);

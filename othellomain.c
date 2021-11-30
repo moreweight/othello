@@ -1,16 +1,6 @@
 
 #include "othellofuncts.h"
 
-gameSquare randomMove(char** board, char player){
-    gameSquare square;
-    square.r = rand() % boardSize;
-    square.c = rand() % boardSize;
-    if (!legalMove(board, player, square)){
-        return randomMove(board, player);
-    }
-    return square;
-}
-
 int main (void) {
 
     char** board = (char**) malloc(boardSize * sizeof(char*));
@@ -26,7 +16,7 @@ int main (void) {
         if(printLegalMovesBoard(board, 'X')){
             printf("It is White's turn, make a move!\n");
             printf("'▫' indicates a legal move!\n");
-            printf("%d discs flipped\n", takeMove(board, 'X', randomMove(board, 'X')));
+            printf("%d discs flipped\n", takeMove(board, 'X', getMove()));
         }
         
         if(printLegalMovesBoard(board, 'O')){

@@ -76,13 +76,24 @@ gameSquare getMove(){
     int* row = (int*) malloc(sizeof(int));
 
     printf("Choose a square to place your piece: ");
-    fscanf(stdin, "\n%c%d", col, row);
+    fscanf(stdin, "\n%c\n%d", col, row);
+    fflush(stdin);
     //printf("\n%d %d\n\n", *col, *row);
     gameSquare square;
     square.c = toupper(*col) - 'A';
     square.r = boardSize - *row;
 
     free(col); free(row);
+    return square;
+}
+
+gameSquare randomMove(char** board, char player){
+    gameSquare square;
+    square.r = rand() % boardSize;
+    square.c = rand() % boardSize;
+    if (!legalMove(board, player, square)){
+        return randomMove(board, player);
+    }
     return square;
 }
 
