@@ -27,7 +27,7 @@ int main (void) {
         if(printLegalMovesBoard(board, 'O')){
             printf("\nIt is Black's turn, make a move!\n");
             printf("'▫' indicates a legal move!\n");
-            printf("%d discs flipped\n\n", takeMove(board, 'O', getMove()));
+            printf("%d discs flipped\n\n", takeMove(board, 'O', getMove())); // !! REPLACE getMove() with randomMove(board, 'O') to see comp vs comp play
             printf("------------------------------\n\n");
         }
         
