@@ -75,7 +75,7 @@ gameSquare getMove(){
     char* col = (char*) malloc(sizeof(char));
     int* row = (int*) malloc(sizeof(int));
 
-    printf("Choose a square to place your piece: ");
+    printf("Choose a square to place your piece (format 'A1'): ");
     fscanf(stdin, "\n%c\n%d", col, row);
     fflush(stdin);
     //printf("\n%d %d\n\n", *col, *row);
@@ -252,7 +252,7 @@ int takeMove(char** board, char player, gameSquare square){
 
     // Invokes recursion until selected move is legal
     if (!legalMove(board, player, square)){
-        printf("That was an illegal move, try again!\n");
+        printf("\nThat was an illegal move, try again!\n");
         return takeMove(board, player, getMove());
     }
 
